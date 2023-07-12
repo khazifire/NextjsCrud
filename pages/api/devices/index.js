@@ -2,7 +2,7 @@
 // api/devices/{id}
 //api/devices/[deviceId]
 
-import { createDevice, deleteDevice, readDevice } from "@/lib/deviceCrud";
+import { createDevice,readAllDevices } from "@/lib/deviceCrud";
 
 export default function handler(req, res) {
   if (req.method === 'GET') {
@@ -16,7 +16,7 @@ export default function handler(req, res) {
 
 async function handleGetRequest(req, res) {
   try {
-    const device = readDevice();
+    const device = readAllDevices();
     return res.status(200).json({device});
   } catch (err) {
     console.log(err)
